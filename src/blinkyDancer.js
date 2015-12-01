@@ -19,7 +19,8 @@
 // };
 
 var MakeBlinkyDancer = function(top, left, timeBetweenSteps) {
-  MakeDancer.call(this, top, left, timeBetweenSteps);
+  MakeDancer.call(this, top, left, timeBetweenSteps * 1000);
+  
   //$('.dancer').css({"border":"20px solid blue"});
 
 };
