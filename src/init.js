@@ -28,6 +28,7 @@ $(document).ready(function() {
       Math.random()
     );
     $('body').append(dancer.$node);
+    window.dancers.push(dancer);
   });
 });
 
