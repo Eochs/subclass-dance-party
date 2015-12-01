@@ -32,3 +32,17 @@ $(document).ready(function() {
   });
 });
 
+$(".lineUpButton").on("click", function(event) { 
+  for(var i = 0; i<window.dancers.length; i++){
+    if(!window.dancers[i].hasBeenLinedUp){
+      window.dancers[i].lineUp();
+      window.dancers[i].hasBeenLinedUp = true;
+    } else {
+      window.dancers[i].hasBeenLinedUp = false;
+      window.dancers[i].step();
+    }
+  }
+
+    
+});
+

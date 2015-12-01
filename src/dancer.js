@@ -42,13 +42,15 @@ var MakeDancer = function(top,left,timeBetweenSteps){
   this.timeBetweenSteps = timeBetweenSteps;
   this.step();
   this.setPosition(top, left);
-
+  this.hasBeenLinedUp = false;
 };
 
 MakeDancer.prototype.step = function() {
     // the basic dancer doesn't do anything interesting at all on each step,
     // it just schedules the next step
-    setTimeout(function(){this.step()}.bind(this), this.timeBetweenSteps);
+    if ( ! this.hasBeenLinedUp ) {
+      setTimeout(function(){this.step()}.bind(this), this.timeBetweenSteps);
+    }
 };
 
 MakeDancer.prototype.setPosition = function(top, left) {
@@ -63,6 +65,12 @@ MakeDancer.prototype.setPosition = function(top, left) {
     this.top = top;
     this.left = left;
 };
+
+MakeDancer.prototype.lineUp = function() {
+  this.$node.animate({ top : "500"});
+
+
+}
 
 
 

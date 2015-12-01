@@ -34,7 +34,6 @@ MakeRicochetDancer.prototype.step = function() {
   } else {
     for(var i = 0; i<window.dancers.length; i++){
       if(window.dancers[i] === this){
-        console.log(this);
       }else if ( window.dancers[i].top <= this.top + 30
                 && window.dancers[i].top >= this.top - 30 
                 && window.dancers[i].left <= this.left + 30 
