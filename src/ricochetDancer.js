@@ -40,6 +40,12 @@ MakeRicochetDancer.prototype.step = function() {
                 && window.dancers[i].left >= this.left - 30 ){
         this.signY *= -1;
         this.signX *= -1;
+      } else if ( window.mouseY <= this.top + 90
+                && window.mouseY >= this.top - 90 
+                && window.mouseX <= this.left + 90 
+                && window.mouseX >= this.left - 90 ) {
+        this.signY *= -1;
+        this.signX *= -1;
       }
     }
   }

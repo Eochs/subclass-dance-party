@@ -22,7 +22,7 @@ var MakeBlueDancer = function(top, left, timeBetweenSteps) {
   MakeDancer.call(this, top, left, timeBetweenSteps * .1);
 
   this.$node.addClass('blueDancer').removeClass('dancer');
-  this.multiplier = 10;
+  this.multiplier = 1;
   this.angle = 0;
   // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
   // so we must keep a copy of the old version of this function
@@ -43,10 +43,32 @@ MakeBlueDancer.prototype.step = function() {
     //             duration: 1000, 
     //             complete: step});
     //     }});
-    var angle = this.angle;
+  //  if (this.top > this.maxY || this.top < 0) {
+  //   this.multiplier *= -1;
+  // } else if (this.left > this.maxX || this.left < 0) {
+  //   this.multiplier *= -1;
+  // } else {
+    for(var i = 0; i<window.dancers.length; i++){
+      if(window.dancers[i] === this){
+      }else if ( window.dancers[i].top <= this.top + 50
+                && window.dancers[i].top >= this.top - 50 
+                && window.dancers[i].left <= this.left + 50 
+                && window.dancers[i].left >= this.left - 50 ){
+        this.multiplier *= -1;
+      } else if ( window.mouseY <= this.top + 90
+                && window.mouseY >= this.top - 90 
+                && window.mouseX <= this.left + 90 
+                && window.mouseX >= this.left - 90 ) {
+        this.multiplier *= -1;
+      }
+    }
+  //}
+
+
+   var angle = this.angle;
    MakeDancer.prototype.step.call(this);
    this.top += Math.sin(angle) * .5;
    this.left += Math.cos(angle) * .5;
    this.setPosition(this.top, this.left);
-   this.angle = angle + 0.01;
+   this.angle = angle + (0.01)*this.multiplier;
   };

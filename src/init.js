@@ -42,7 +42,10 @@ $(".lineUpButton").on("click", function(event) {
       window.dancers[i].step();
     }
   }
-
     
 });
 
+$('body').mousemove(function(e){
+  window.mouseX = e.pageX;
+  window.mouseY = e.pageY;
+});
