@@ -31,3 +31,9 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
+.movingDancer {
+    border:20px solid blue;
+  border-radius:10px;
+  position:absolute;
+}

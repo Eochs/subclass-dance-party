@@ -39,6 +39,12 @@ MakeBlueDancer.prototype.step = function() {
     // See http://api.jquery.com/category/effects/ for this and
     // other effects you can use on a jQuery-wrapped html tag.
     //this.oldStep();
-    this.$node.toggle();
-    MakeDancer.prototype.step.call(this);
+    this.$node.animate({'top': '500'}, {
+        duration: 1000, 
+        complete: function() {
+            this.$node.animate({top: 0}, {
+                duration: 1000, 
+                complete: step});
+        }});
+    //MakeDancer.prototype.step.call(this);
   };
