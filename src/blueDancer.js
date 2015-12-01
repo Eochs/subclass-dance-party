@@ -18,15 +18,22 @@
 //   return blinkyDancer;
 // };
 
-var MakeBlinkyDancer = function(top, left, timeBetweenSteps) {
+var MakeBlueDancer = function(top, left, timeBetweenSteps) {
   MakeDancer.call(this, top, left, timeBetweenSteps);
-  //$('.dancer').css({"border":"20px solid blue"});
+
+  this.$node.addClass('blueDancer').removeClass('dancer');
+  
+  // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
+  // so we must keep a copy of the old version of this function
+  //this.oldStep = this.step;
+ 
+
 
 };
 
-MakeBlinkyDancer.prototype = Object.create(MakeDancer.prototype);
+MakeBlueDancer.prototype = Object.create(MakeDancer.prototype);
 
-MakeBlinkyDancer.prototype.step = function() {
+MakeBlueDancer.prototype.step = function() {
     // call the old version of step at the beginning of any call to this new version of step
     // toggle() is a jQuery method to show/hide the <span> tag.
     // See http://api.jquery.com/category/effects/ for this and
