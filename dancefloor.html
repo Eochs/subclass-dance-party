@@ -9,6 +9,19 @@
     <script src="src/blueDancer.js"></script>
     <script src="src/movingDancer.js"></script>
     <script src="src/ricochetDancer.js"></script>
+    <script src="src/bounceDancer.js"></script>
+
+    <script type="text/javascript">
+          function playSound(el,soundfile) {
+              if (el.mp3) {
+                  if(el.mp3.paused) el.mp3.play();
+                  else el.mp3.pause();
+              } else {
+                  el.mp3 = new Audio(soundfile);
+                  el.mp3.play();
+              }
+          }
+      </script>
   </head>
   <body>
     <div class="topbar">
@@ -16,8 +29,12 @@
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="MakeBlinkyDancer">add a blinky dancer</a>    </div>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="MakeBlueDancer">add a blue dancer</a>    </div>
       <a href="#" class="addDancerButton" data-dancer-maker-function-name="MakeRicochetDancer">add a ricocheting dancer</a>    </div>
+      <a href="#" class="addDancerButton" data-dancer-maker-function-name="MakeBounceDancer">add a bouncing dancer</a>    </div>
+
       <a href="#" class="lineUpButton" >line up dancers</a>    </div>
-      
+      <span id="dummy" onclick="playSound(this, 'audio/power.mp3');">
+        NIGHTMARE MODE! D:<!--<img src="short_a/bat.jpg" name="Bottom-1" width="115" height="45" border="0" id="Bottom-1"/>-->
+      </span>
     <script src="src/init.js"></script>
   </body>
 </html>
