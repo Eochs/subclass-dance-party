@@ -32,23 +32,30 @@ MakeRicochetDancer.prototype.step = function() {
   } else if (this.left > this.maxX || this.left < 0) {
     this.signX *= -1;
   } else {
-    for(var i = 0; i<window.dancers.length; i++){
-      if(window.dancers[i] === this){
-      }else if ( window.dancers[i].top <= this.top + 30
-                && window.dancers[i].top >= this.top - 30 
-                && window.dancers[i].left <= this.left + 30 
-                && window.dancers[i].left >= this.left - 30 ){
-        this.signY *= -1;
-        this.signX *= -1;
-      } else if ( window.mouseY <= this.top + 90
-                && window.mouseY >= this.top - 90 
-                && window.mouseX <= this.left + 90 
-                && window.mouseX >= this.left - 90 ) {
-        this.signY *= -1;
-        this.signX *= -1;
+    if(!this.hasCollided){
+      for(var i = 0; i<window.dancers.length; i++){
+        if(window.dancers[i] === this){
+        }else if ( window.dancers[i].top <= this.top + 20
+                  && window.dancers[i].top >= this.top - 20 
+                  && window.dancers[i].left <= this.left + 20 
+                  && window.dancers[i].left >= this.left - 20 ){
+          this.signY *= -1;
+          this.signX *= -1;
+          this.hasCollided = true;
+          setTimeout(function(){ this.hasCollided = false; }.bind(this), 1000);
+        } else if ( window.mouseY <= this.top + 40
+                  && window.mouseY >= this.top - 40 
+                  && window.mouseX <= this.left + 40 
+                  && window.mouseX >= this.left - 40 ) {
+          this.signY *= -1;
+          this.signX *= -1;
+          this.hasCollided = true;
+          setTimeout(function(){ this.hasCollided = false; }.bind(this), 500);
+        }
       }
     }
   }
+
 
    //  var angle = this.angle;
    MakeDancer.prototype.step.call(this);

@@ -43,6 +43,7 @@ var MakeDancer = function(top,left,timeBetweenSteps){
   this.step();
   this.setPosition(top, left);
   this.hasBeenLinedUp = false;
+  this.hasCollided = false;
 };
 
 MakeDancer.prototype.step = function() {

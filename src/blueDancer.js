@@ -34,20 +34,9 @@ var MakeBlueDancer = function(top, left, timeBetweenSteps) {
 
 MakeBlueDancer.prototype = Object.create(MakeDancer.prototype);
 
-MakeBlueDancer.prototype.step = function() {
- 
-    // this.$node.animate({'top': '500'}, {
-    //     duration: 1000, 
-    //     complete: function() {
-    //         this.$node.animate({top: 0}, {
-    //             duration: 1000, 
-    //             complete: step});
-    //     }});
-  //  if (this.top > this.maxY || this.top < 0) {
-  //   this.multiplier *= -1;
-  // } else if (this.left > this.maxX || this.left < 0) {
-  //   this.multiplier *= -1;
-  // } else {
+MakeBlueDancer.prototype.step = function() {  
+
+  if(!this.hasCollided){
     for(var i = 0; i<window.dancers.length; i++){
       if(window.dancers[i] === this){
       }else if ( window.dancers[i].top <= this.top + 50
@@ -55,14 +44,19 @@ MakeBlueDancer.prototype.step = function() {
                 && window.dancers[i].left <= this.left + 50 
                 && window.dancers[i].left >= this.left - 50 ){
         this.multiplier *= -1;
+        this.hasCollided = true;
+        setTimeout(function(){ this.hasCollided = false; }.bind(this), 1000);
+
       } else if ( window.mouseY <= this.top + 90
                 && window.mouseY >= this.top - 90 
                 && window.mouseX <= this.left + 90 
                 && window.mouseX >= this.left - 90 ) {
         this.multiplier *= -1;
+        this.hasCollided = true;
+        setTimeout(function(){ this.hasCollided = false; }.bind(this), 500);
       }
     }
-  //}
+  }
 
 
    var angle = this.angle;
