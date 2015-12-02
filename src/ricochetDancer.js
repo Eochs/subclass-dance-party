@@ -5,12 +5,12 @@ var MakeRicochetDancer = function(top, left, timeBetweenSteps) {
   this.multiplier = 10;
   this.maxY = $("body").height();
   this.maxX = $("body").width();
-  this.signX = 1;
-  this.signY = 1;
-  // we plan to overwrite the step function below, but we still want the superclass step behavior to work,
-  // so we must keep a copy of the old version of this function
-  //this.oldStep = this.step;
+  // this.signX = 1;
+  // this.signY = 1;
   
+  this.angle = Math.random() * 360;
+  this.signX =  Math.cos(this.angle);
+  this.signY = Math.sin(this.angle);
 
 
 };

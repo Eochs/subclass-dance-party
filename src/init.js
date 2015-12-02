@@ -30,6 +30,12 @@ $(document).ready(function() {
     $('body').append(dancer.$node);
     window.dancers.push(dancer);
   });
+
+  $(".nightmareModeButton").on("click", function(event) {
+    var power = new Audio('audio/power.mp3');
+    power.play()
+  });
+
 });
 
 $(".lineUpButton").on("click", function(event) { 
@@ -49,3 +55,4 @@ $('body').mousemove(function(e){
   window.mouseX = e.pageX;
   window.mouseY = e.pageY;
 });
+

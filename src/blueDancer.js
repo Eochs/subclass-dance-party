@@ -39,10 +39,10 @@ MakeBlueDancer.prototype.step = function() {
   if(!this.hasCollided){
     for(var i = 0; i<window.dancers.length; i++){
       if(window.dancers[i] === this){
-      }else if ( window.dancers[i].top <= this.top + 50
-                && window.dancers[i].top >= this.top - 50 
-                && window.dancers[i].left <= this.left + 50 
-                && window.dancers[i].left >= this.left - 50 ){
+      }else if ( window.dancers[i].top <= this.top + 20
+                && window.dancers[i].top >= this.top - 20 
+                && window.dancers[i].left <= this.left + 20 
+                && window.dancers[i].left >= this.left - 20 ){
         this.multiplier *= -1;
         this.hasCollided = true;
         setTimeout(function(){ this.hasCollided = false; }.bind(this), 1000);

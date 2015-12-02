@@ -45,3 +45,9 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
+.bounceDancer {
+  border:10px solid red;
+  border-radius:10px;
+  position:absolute;
+}
