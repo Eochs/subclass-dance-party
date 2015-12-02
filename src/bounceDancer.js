@@ -41,7 +41,6 @@ MakeBounceDancer.prototype.step = function() {
         var otherY = window.dancers[i].top;
         var dist = Math.sqrt( (otherX - this.left)*(otherX - this.left) + (otherY - this.top)*(otherY - this.top)  );
         if (dist < 10) {
-          debugger;
           this.angle = (360-this.angle)%360;
           if (this.angle >= 0 && this.angle < 90) {
             this.signX = Math.cos(this.angle);

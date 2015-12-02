@@ -1,5 +1,6 @@
 $(document).ready(function() {
   window.dancers = [];
+  window.terryCrewsMode = false;
 
   $(".addDancerButton").on("click", function(event) {
     /* This function sets up the click handlers for the create-dancer
@@ -28,12 +29,19 @@ $(document).ready(function() {
       Math.random()
     );
     $('body').append(dancer.$node);
+
     window.dancers.push(dancer);
   });
 
   $(".nightmareModeButton").on("click", function(event) {
     var power = new Audio('audio/power.mp3');
     power.play()
+    //$('body').css({background: url('imgs/nebulae.jpg')});
+    for(var i = 0; i<window.dancers.length; i++){
+      window.dancers[i].$node.append($('<img src="imgs/terry crews head.png">'));
+      window.dancers[i].$node.css({border : 0});
+
+    }
   });
 
 });

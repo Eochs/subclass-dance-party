@@ -38,12 +38,18 @@
 
 
 var MakeDancer = function(top,left,timeBetweenSteps){
-  this.$node = $('<span class="dancer"></span>');
+  this.$node;
+  if (window.terryCrewsMode) {
+    this.$node = $("<span style=width: 90px; height: 90px; display:block; position: absolute <img src='terry crews head.jpg'></span>")
+  } else {
+    this.$node = $('<span class="dancer"></span>');
+  } 
   this.timeBetweenSteps = timeBetweenSteps;
   this.step();
   this.setPosition(top, left);
   this.hasBeenLinedUp = false;
   this.hasCollided = false;
+
 };
 
 MakeDancer.prototype.step = function() {

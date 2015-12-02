@@ -51,3 +51,8 @@ body, a:link, a:visited, a:active{
   border-radius:10px;
   position:absolute;
 }
+
+.terryCrews {
+  background-image: url('imgs/terry crews head.jpg');
+  position:absolute;
+}
